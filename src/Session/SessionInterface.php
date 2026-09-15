@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Velo\Session\Session\Interfaces;
+namespace Velo\Session\Session;
 
 interface SessionInterface
 {
@@ -43,9 +43,4 @@ interface SessionInterface
      * Determines whether a flash key exists.
      */
     public function hasFlash(string $key): bool;
-
-    /**
-     * Stores a CSRF token in the session.
-     */
-    public function setCsrfToken(string $value): self;
 }

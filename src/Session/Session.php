@@ -3,8 +3,6 @@ declare(strict_types=1);
 
 namespace Velo\Session\Session;
 
-use Velo\Session\Session\Interfaces\SessionInterface;
-
 /**
  * Native PHP session implementation.
  */
@@ -14,12 +12,6 @@ final class Session implements SessionInterface
      * Session key used to store all the flash data.
      */
     private const string FLASH_KEY = 'flash_data';
-
-    /**
-     * Session key used to store the CSRF token.
-     */
-    private const string CSRF_TOKEN_KEY = 'csrf_token';
-
 
     public function __construct()
     {
@@ -75,10 +67,5 @@ final class Session implements SessionInterface
     public function hasFlash(string $key): bool
     {
         return isset($_SESSION[self::FLASH_KEY][$key]);
-    }
-
-    public function setCsrfToken(string $value): self
-    {
-        return $this->set(Session::CSRF_TOKEN_KEY, $value);
     }
 }
